@@ -29,13 +29,6 @@ Throughout these challenges, I have utilized a variety of programming languages,
 - Frameworks/Libraries: React, Node.js, Express, etc.
 - Tools: Docker, Git, CI/CD pipelines, etc.
 
-## 🌟 Highlights
-
-Here are some of the standout challenges that I particularly enjoyed or found exceptionally demanding:
-
-- `CompanyNameX/InnovativeChallenge/`: Briefly describe what made this challenge enjoyable.
-- `CompanyNameY/ComplexAlgorithm/`: A brief description of the complexity and the approach taken.
-
 ## ✨ Contributing
 
 While this repository primarily serves as a personal archive, I welcome discussions, feedback, and questions on the challenges and solutions. Feel free to open an issue or submit a pull request if you have suggestions or corrections.
