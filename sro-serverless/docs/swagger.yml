@@ -1,0 +1,100 @@
+openapi: 3.0.0
+info:
+  title: Serverless Full-Stack Application API
+  description: API for user signup, login, and token validation.
+  version: 1.0.0
+
+servers:
+  - url: 'https://example.com/api'
+
+paths:
+  /signup:
+    post:
+      summary: User Signup
+      description: Registers a new user with email, password, name, dob, and role.
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  format: email
+                  description: Unique user email address.
+                password:
+                  type: string
+                  description: User password.
+                name:
+                  type: string
+                  description: User's full name.
+                dob:
+                  type: string
+                  format: date
+                  description: User's date of birth. Optional.
+                role:
+                  type: string
+                  description: User role.
+              required:
+                - email
+                - password
+                - name
+                - role
+      responses:
+        '200':
+          description: Signup successful.
+  
+  /login:
+    post:
+      summary: User Login
+      description: Authenticates a user and returns a JWT token.
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
+              required:
+                - email
+                - password
+      responses:
+        '200':
+          description: Login successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+                    description: JWT token for authenticated session.
+  
+  /validate-token:
+    post:
+      summary: Validate Token
+      description: Validates the provided JWT token and returns user details.
+      parameters:
+        - in: header
+          name: Authorization
+          schema:
+            type: string
+          required: true
+          description: JWT token for authentication, prefixed by 'Bearer '.
+      responses:
+        '200':
+          description: Token is valid.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  userId:
+                    type: string
+                    description: ID of the user associated with the token.
